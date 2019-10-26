@@ -1,0 +1,86 @@
+;
+; KernelProtect.inf
+;
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=Sample ; TODO: edit Class
+ClassGuid={78A1C341-4539-11d3-B88D-00C04FAD5171} ; TODO: edit ClassGuid
+Provider=%ManufacturerName%
+CatalogFile=KernelProtect.cat
+DriverVer= ; TODO: set DriverVer in stampinf property pages
+
+[DestinationDirs]
+DefaultDestDir = 12
+KernelProtect_Device_CoInstaller_CopyFiles = 11
+
+; ================= Class section =====================
+
+[ClassInstall32]
+Addreg=SampleClassReg
+
+[SampleClassReg]
+HKR,,,0,%ClassName%
+HKR,,Icon,,-5
+
+[SourceDisksNames]
+1 = %DiskName%,,,""
+
+[SourceDisksFiles]
+KernelProtect.sys  = 1,,
+WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll=1 ; make sure the number matches with SourceDisksNames
+
+;*****************************************
+; Install Section
+;*****************************************
+
+[Manufacturer]
+%ManufacturerName%=Standard,NT$ARCH$
+
+[Standard.NT$ARCH$]
+%KernelProtect.DeviceDesc%=KernelProtect_Device, Root\KernelProtect ; TODO: edit hw-id
+
+[KernelProtect_Device.NT]
+CopyFiles=Drivers_Dir
+
+[Drivers_Dir]
+KernelProtect.sys
+
+;-------------- Service installation
+[KernelProtect_Device.NT.Services]
+AddService = KernelProtect,%SPSVCINST_ASSOCSERVICE%, KernelProtect_Service_Inst
+
+; -------------- KernelProtect driver install sections
+[KernelProtect_Service_Inst]
+DisplayName    = %KernelProtect.SVCDESC%
+ServiceType    = 1               ; SERVICE_KERNEL_DRIVER
+StartType      = 3               ; SERVICE_DEMAND_START
+ErrorControl   = 1               ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %12%\KernelProtect.sys
+
+;
+;--- KernelProtect_Device Coinstaller installation ------
+;
+
+[KernelProtect_Device.NT.CoInstallers]
+AddReg=KernelProtect_Device_CoInstaller_AddReg
+CopyFiles=KernelProtect_Device_CoInstaller_CopyFiles
+
+[KernelProtect_Device_CoInstaller_AddReg]
+HKR,,CoInstallers32,0x00010000, "WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll,WdfCoInstaller"
+
+[KernelProtect_Device_CoInstaller_CopyFiles]
+WdfCoInstaller$KMDFCOINSTALLERVERSION$.dll
+
+[KernelProtect_Device.NT.Wdf]
+KmdfService =  KernelProtect, KernelProtect_wdfsect
+[KernelProtect_wdfsect]
+KmdfLibraryVersion = $KMDFVERSION$
+
+[Strings]
+SPSVCINST_ASSOCSERVICE= 0x00000002
+ManufacturerName="<Your manufacturer name>" ;TODO: Replace with your manufacturer name
+ClassName="Samples" ; TODO: edit ClassName
+DiskName = "KernelProtect Installation Disk"
+KernelProtect.DeviceDesc = "KernelProtect Device"
+KernelProtect.SVCDESC = "KernelProtect Service"

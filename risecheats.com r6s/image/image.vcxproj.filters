@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Driver Files">
+      <UniqueIdentifier>{8E41214B-6785-4CFE-B992-037D68949A14}</UniqueIdentifier>
+      <Extensions>inf;inv;inx;mof;mc;</Extensions>
+    </Filter>
+    <Filter Include="Source Files\memory">
+      <UniqueIdentifier>{c9455ad6-ac37-4883-b58a-806c01989e12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\driverbase">
+      <UniqueIdentifier>{0de0e876-6bd7-44f2-a497-db75bd787f1e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\etc">
+      <UniqueIdentifier>{919913e1-059f-42e2-943c-1e5ae9f0a312}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\task">
+      <UniqueIdentifier>{a69c683b-1159-4c0c-bb93-67f3989b54aa}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="driver.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="memory\virtual.cpp">
+      <Filter>Source Files\memory</Filter>
+    </ClCompile>
+    <ClCompile Include="process\process.cpp">
+      <Filter>Source Files\task</Filter>
+    </ClCompile>
+    <ClCompile Include="kernel\module.cpp">
+      <Filter>Source Files\driverbase</Filter>
+    </ClCompile>
+    <ClCompile Include="kernel\pattern.cpp">
+      <Filter>Source Files\driverbase</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="driver.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="memory\virtual.h">
+      <Filter>Source Files\memory</Filter>
+    </ClInclude>
+    <ClInclude Include="util\defines.h">
+      <Filter>Source Files\etc</Filter>
+    </ClInclude>
+    <ClInclude Include="process\process.h">
+      <Filter>Source Files\task</Filter>
+    </ClInclude>
+    <ClInclude Include="kernel\module.h">
+      <Filter>Source Files\driverbase</Filter>
+    </ClInclude>
+    <ClInclude Include="kernel\pattern.h">
+      <Filter>Source Files\driverbase</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

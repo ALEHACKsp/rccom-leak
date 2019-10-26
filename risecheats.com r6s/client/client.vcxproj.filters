@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files\util">
+      <UniqueIdentifier>{4431e252-2bf9-42ae-80ad-41e743157c9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\stuff">
+      <UniqueIdentifier>{23834ea1-b844-4221-bd7d-f0f91e2d350c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="core\kernel.cpp">
+      <Filter>Source Files\stuff</Filter>
+    </ClCompile>
+    <ClCompile Include="util\process.cpp">
+      <Filter>Source Files\util</Filter>
+    </ClCompile>
+    <ClCompile Include="game\game.cpp">
+      <Filter>Source Files\stuff</Filter>
+    </ClCompile>
+    <ClCompile Include="rise.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="vectors.cpp">
+      <Filter>Source Files\stuff</Filter>
+    </ClCompile>
+    <ClCompile Include="inireader.cpp">
+      <Filter>Source Files\stuff</Filter>
+    </ClCompile>
+    <ClCompile Include="iniwriter.cpp">
+      <Filter>Source Files\stuff</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="core\kernel.h">
+      <Filter>Source Files\stuff</Filter>
+    </ClInclude>
+    <ClInclude Include="util\process.h">
+      <Filter>Source Files\util</Filter>
+    </ClInclude>
+    <ClInclude Include="game\offsets.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vector.h">
+      <Filter>Source Files\stuff</Filter>
+    </ClInclude>
+    <ClInclude Include="client.h">
+      <Filter>Source Files\stuff</Filter>
+    </ClInclude>
+    <ClInclude Include="game\functions.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vars.h">
+      <Filter>Source Files\stuff</Filter>
+    </ClInclude>
+    <ClInclude Include="inireader.h">
+      <Filter>Source Files\stuff</Filter>
+    </ClInclude>
+    <ClInclude Include="iniwriter.h">
+      <Filter>Source Files\stuff</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
